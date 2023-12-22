@@ -1,6 +1,7 @@
 .mainPage {
   width: 100%;
   height: 100vh;
+  background-color: #3b1739;
 }
 .mainPageInner {
   display: flex;
