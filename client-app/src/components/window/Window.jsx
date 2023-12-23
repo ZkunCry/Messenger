@@ -1,9 +1,12 @@
 import React from "react";
 import styles from "./Window.module.css";
 import { Form, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 const Window = () => {
   const { register, control } = useForm();
+  const navigate = useNavigate();
   const handleClick = async ({ data }) => {
+    navigate(`/chat?name=${data.userLogin}&room=${data.idRoom}`);
     console.log(data);
   };
   return (
