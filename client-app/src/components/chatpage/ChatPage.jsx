@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import { useLocation } from "react-router-dom";
+import ChatTextBox from "./ChatTextBox";
 const socket = io.connect("http://localhost:3001");
 
 export const ChatPage = () => {
@@ -15,9 +16,14 @@ export const ChatPage = () => {
   useEffect(() => {
     socket.on("message", ({ data }) => {
       setMessages((state) => [...state, data]);
-      alert(messages[0].userLogin.name + " " + messages[0].message);
+      //alert(messages[0].userLogin.name + " " + messages[0].message);
     });
   }, []);
   console.log(messages);
-  return <div>ChatPage</div>;
+  return (
+    <div>
+      <ChatTextBox/>
+      
+    </div>
+  );
 };
